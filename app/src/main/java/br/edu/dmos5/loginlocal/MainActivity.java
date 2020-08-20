@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lembrarCheckBox = findViewById(R.id.checkbox_lembrar);
         novoUsuárioTextView = findViewById(R.id.textview_novo);
         logarButton.setOnClickListener(this);
+        novoUsuárioTextView.setOnClickListener(this);
 
         mSharedPreferences = this.getPreferences(MODE_PRIVATE);
         mEditor = mSharedPreferences.edit();
@@ -97,6 +98,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             abrirBoasVindas();
             return;
         }
+        if(view == novoUsuárioTextView){
+            Intent in = new Intent(this, NovoUsuarioActivity.class);
+            startActivity(in);
+            return;
+        }
     }
 
     private void abrirBoasVindas(){
@@ -111,12 +117,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void salvaPreferencias(){
         if(lembrarCheckBox.isChecked()){
             mEditor.putString(getString(R.string.key_usuario), usuario);
+            mEditor.commit();
             mEditor.commit();mEditor.putString(getString(R.string.key_senha), senha);
+            mEditor.commit();
             mEditor.commit();mEditor.putBoolean(getString(R.string.key_lembrar), true);
             mEditor.commit();
         }else{
             mEditor.putString(getString(R.string.key_usuario), "");
+            mEditor.commit();
             mEditor.commit();mEditor.putString(getString(R.string.key_senha), "");
+            mEditor.commit();
             mEditor.commit();mEditor.putBoolean(getString(R.string.key_lembrar), false);
             mEditor.commit();
         }
