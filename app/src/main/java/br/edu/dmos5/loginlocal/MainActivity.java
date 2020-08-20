@@ -2,6 +2,7 @@ package br.edu.dmos5.loginlocal;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -24,6 +25,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onCreate()");
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         usuarioEditText = findViewById(R.id.edittext_usuario);
@@ -32,6 +36,42 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         lembrarCheckBox = findViewById(R.id.checkbox_lembrar);
         novoUsuárioTextView = findViewById(R.id.textview_novo);
         logarButton.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onStart() {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onStart()");
+        super.onStart();
+    }
+
+    @Override
+    protected void onRestart() {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onRestart()");
+        super.onRestart();
+    }
+
+    @Override
+    protected void onResume() {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onResume()");
+        super.onResume();
+    }
+
+    @Override
+    protected void onPause() {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onPause()");
+        super.onPause();
+    }
+
+    @Override
+    protected void onStop() {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onStop()");
+        super.onStop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        Log.i(getString(R.string.tag), "Classe: " + getClass().getSimpleName() +  "| Método : onDestroy()");
+        super.onDestroy();
     }
 
     @Override
